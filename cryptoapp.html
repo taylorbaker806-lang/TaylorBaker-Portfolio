@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crypto Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+
+        .box {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #34495e;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #f39c12;
+            text-align: center;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #2c3e50;
+            border-radius: 5px;
+        }
+
+        .green {
+            color: #2ecc71;
+        }
+
+        .red {
+            color: #e74c3c;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Crypto Profit Calculator</h1>
+        <p style="text-align: center;"><a href="scratch.html">← Back</a></p>
+
+        <label>Choose Crypto:</label>
+        <select id="crypto">
+            <option value="">Pick one...</option>
+            <option value="btc">Bitcoin</option>
+            <option value="eth">Ethereum</option>
+            <option value="sol">Solana</option>
+        </select>
+
+        <label>How much did you buy?</label>
+        <input type="number" id="amount" placeholder="1.0">
+
+        <label>Price you paid per coin:</label>
+        <input type="number" id="buyPrice" placeholder="30000">
+
+        <button onclick="calc()">Calculate</button>
+
+        <div id="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        const prices = {
+            'btc': 42500,
+            'eth': 2250,
+            'sol': 95
+        };
+
+        const names = {
+            'btc': 'Bitcoin',
+            'eth': 'Ethereum',
+            'sol': 'Solana'
+        };
+
+        function calc() {
+            const crypto = document.getElementById('crypto').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const buyPrice = parseFloat(document.getElementById('buyPrice').value);
+
+            if (!crypto || !amount || !buyPrice) {
+                alert('Fill in all fields!');
+                return;
+            }
+
+            const currentPrice = prices[crypto];
+            const spent = amount * buyPrice;
+            const now = amount * currentPrice;
+            const profit = now - spent;
+            const percent = ((profit / spent) * 100).toFixed(2);
+
+            const color = profit >= 0 ? 'green' : 'red';
+            const sign = profit >= 0 ? '+' : '';
+
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').innerHTML = `
+                <div class="result">
+                    <h2>${names[crypto]}</h2>
+                    <p>Amount: ${amount} coins</p>
+                    <p>You paid: $${buyPrice} per coin</p>
+                    <p>Current price: $${currentPrice.toLocaleString()}</p>
+                    <hr>
+                    <p>You invested: $${spent.toFixed(2)}</p>
+                    <p>Worth now: $${now.toFixed(2)}</p>
+                    <p class="${color}" style="font-size: 24px; font-weight: bold;">
+                        ${sign}$${profit.toFixed(2)} (${sign}${percent}%)
+                    </p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

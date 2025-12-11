@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Taylor J. Baker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #ecf0f1;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .resume-paper {
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        
+        .resume-header {
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .resume-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            color: #666;
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 8px;
+        }
+        
+        .resume-section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 12px;
+            color: var(--secondary-color);
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .company-name {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .date-location {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        
+        .job-duties {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .job-duties li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-item {
+            padding: 12px 20px;
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 4px;
+        }
+        
+        .skill-item i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .leadership-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .leadership-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .leadership-list li:before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .download-btn {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn-custom {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-custom:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media print {
+            .navbar, footer, .download-btn {
+                display: none;
+            }
+            .resume-paper {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Taylor J. Baker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="resume.html">Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>My Resume</h1>
+            <p>Professional experience and qualifications</p>
+        </div>
+    </section>
+
+    <!-- Resume Content -->
+    <div class="resume-container">
+        <div class="resume-paper">
+            <!-- Resume Header -->
+            <div class="resume-header">
+                <h1>TAYLOR J. BAKER</h1>
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i>(806) 507-1812</span>
+                    <span><i class="fas fa-envelope"></i>taylor.baker507@gmail.com</span>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="resume-section">
+                <div class="section-title">
+                    <i class="fas fa-user"></i>
+                    PROFESSIONAL SUMMARY
+                </div>
+                <p>Highly motivated Business Management student at Brigham Young University with a proven track record of leadership, cross-cultural communication, and operational excellence. Distinguished by graduating in the top 4% of high school class and successfully leading teams of 15-20 individuals in diverse environments. Bilingual professional (English/Swahili) with 4+ years of customer service, team leadership, and project management experience across retail, food service, and commercial installation sectors. Known for quick adaptability, strong work ethic, and ability to drive results while maintaining exceptional interpersonal relationships. Seeking opportunities to leverage business acumen and leadership skills in a dynamic professional environment.</p>
+            </div>
+
+            <!-- Education Section -->
+            <div class="resume-section">
+                <div class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    EDUCATION
+                </div>
+                <div class="education-item">
+                    <div class="job-title">Brigham Young University (BYU)</div>
+                    <div class="company-name">Declared Major: Business Management</div>
+                    <div class="date-location">Expected Graduation: Winter 2025</div>
+                </div>
+                <div class="education-item">
+                    <div class="job-title">Frenship High School</div>
+                    <div class="date-location">Graduated 2019-2023</div>
+                    <ul class="job-duties">
+                        <li>Class Rank: 24 out of 650 (Top 4%)</li>
+                        <li>Business and Marketing Program</li>
+                        <li>Gifted and Talented/Advanced Academics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Professional Experience Section -->
+            <div class="resume-section">
+                <div class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    PROFESSIONAL EXPERIENCE
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">Installer</div>
+                    <div class="company-name">Commercial Play Systems, Inc. | Lubbock, TX</div>
+                    <div class="date-location">October 2024 - December 2024 (Seasonal Position)</div>
+                    <ul class="job-duties">
+                        <li>Installed commercial playground systems for municipalities, businesses, and residential clients</li>
+                        <li>Ensured high-quality installation standards based on industry regulations and manufacturer guidelines</li>
+                        <li>Conducted site preparation, equipment assembly, and inspections</li>
+                        <li>Collaborated with team to meet project deadlines and client needs</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Volunteer Representative/Missionary</div>
+                    <div class="company-name">Church of Jesus Christ of Latter-Day Saints | Salt Lake City East Mission</div>
+                    <div class="date-location">July 2023 - October 2024 (English and Swahili speaking)</div>
+                    <ul class="job-duties">
+                        <li><strong>Zone Leader:</strong> Supervised a team of 15-20 individuals, leading weekly meetings to review progress, set goals, and provide support</li>
+                        <li>Planned and facilitated workshops on personal and professional development, enhancing the productivity and effectiveness of teams</li>
+                        <li>Developed strong interpersonal skills by engaging in cross-cultural communication with individuals from diverse backgrounds and organizing community outreach events</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Team Associate</div>
+                    <div class="company-name">Curbys | Lubbock, TX</div>
+                    <div class="date-location">August 2022 - January 2023</div>
+                    <ul class="job-duties">
+                        <li>Provided fast, friendly, and accurate service in a high-volume environment, consistently meeting customer satisfaction goals</li>
+                        <li>Managed daily cash transactions and balanced registers, ensuring accuracy and accountability</li>
+                        <li>Assisted in training new employees on company procedures</li>
+                        <li>Maintained strong communication with team members and management to ensure smooth operations and timely service</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Team Member</div>
+                    <div class="company-name">Chick-fil-A | Lubbock, TX</div>
+                    <div class="date-location">August 2019 - August 2021</div>
+                    <ul class="job-duties">
+                        <li>Assisted in managing daily operations, including inventory control and cash handling, ensuring accuracy and efficiency</li>
+                        <li>Collaborated with team members to meet sales targets and maintain a high standard of service during peak hours</li>
+                        <li>Demonstrated strong problem-solving skills by handling customer complaints and resolving issues in a timely manner</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="resume-section">
+                <div class="section-title">
+                    <i class="fas fa-star"></i>
+                    CORE COMPETENCIES & SKILLS
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 style="color: var(--primary-color); margin-bottom: 15px;"><i class="fas fa-users"></i> Leadership & Management</h5>
+                        <ul class="job-duties">
+                            <li>Team supervision and personnel management (15-20+ members)</li>
+                            <li>Goal setting and performance tracking</li>
+                            <li>Workshop facilitation and training delivery</li>
+                            <li>Conflict resolution and problem-solving</li>
+                            <li>Project coordination and deadline management</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="color: var(--primary-color); margin-bottom: 15px;"><i class="fas fa-comments"></i> Communication & Interpersonal</h5>
+                        <ul class="job-duties">
+                            <li>Exceptional verbal and written communication</li>
+                            <li>Cross-cultural engagement and sensitivity</li>
+                            <li>Customer service and relationship building</li>
+                            <li>Public speaking and presentation skills</li>
+                            <li>Active listening and empathy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <h5 style="color: var(--primary-color); margin-bottom: 15px;"><i class="fas fa-briefcase"></i> Professional & Technical</h5>
+                        <ul class="job-duties">
+                            <li>Cash handling and financial accountability</li>
+                            <li>Inventory control and management</li>
+                            <li>Point-of-sale (POS) systems operation</li>
+                            <li>Quality assurance and compliance</li>
+                            <li>Safety protocols and equipment operation</li>
+                            <li>Microsoft Office Suite proficiency</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="color: var(--primary-color); margin-bottom: 15px;"><i class="fas fa-lightbulb"></i> Personal Attributes</h5>
+                        <ul class="job-duties">
+                            <li>Self-motivated and intrinsically driven</li>
+                            <li>Quick learner with high adaptability</li>
+                            <li>Strong organizational and time-management skills</li>
+                            <li>Detail-oriented with quality focus</li>
+                            <li>Personable and team-oriented</li>
+                            <li>Reliable and consistently punctual</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <h5 style="color: var(--primary-color); margin-bottom: 15px;"><i class="fas fa-globe"></i> Languages</h5>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <i class="fas fa-check-circle"></i><strong>English</strong> - Native proficiency
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-check-circle"></i><strong>Swahili</strong> - Professional working proficiency
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leadership Section -->
+            <div class="resume-section">
+                <div class="section-title">
+                    <i class="fas fa-trophy"></i>
+                    LEADERSHIP, HONORS & ACTIVITIES
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 style="color: var(--primary-color); margin-bottom: 15px;">Leadership Roles</h5>
+                        <ul class="leadership-list">
+                            <li><strong>DECA Chapter Officer & National Qualifier</strong> - Led chapter initiatives and competed at national level in business competitions</li>
+                            <li><strong>Texas Boys State Delegate</strong> - Selected to participate in prestigious leadership and government program</li>
+                            <li><strong>Youth Church Group Leader</strong> - Mentored and guided youth groups in personal development activities</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="color: var(--primary-color); margin-bottom: 15px;">Honors & Activities</h5>
+                        <ul class="leadership-list">
+                            <li><strong>National Honor Society Member</strong> - Recognized for academic excellence and community service</li>
+                            <li><strong>Back the Badges 5K Team Volunteer</strong> - Organized and participated in community fundraising events</li>
+                            <li><strong>FHS Football & Varsity Track Team</strong> - Demonstrated teamwork, discipline, and athletic achievement</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <h5 style="color: var(--primary-color); margin-bottom: 15px;">Additional Achievements</h5>
+                        <ul class="job-duties">
+                            <li>Graduated in top 4% of class (24 out of 650 students) at Frenship High School</li>
+                            <li>Completed Gifted and Talented/Advanced Academics program</li>
+                            <li>Successfully completed Business and Marketing Program curriculum</li>
+                            <li>Demonstrated commitment to community service through multiple volunteer initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Button -->
+            <div class="download-btn">
+                <a href="#" class="btn-custom" onclick="window.print(); return false;">
+                    <i class="fas fa-download"></i> Print/Download Resume
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="mailto:taylor.baker806@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 Taylor J. Baker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
